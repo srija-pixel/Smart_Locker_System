@@ -1,0 +1,13 @@
+# ESP32 secrets
+ESP32/config.h
+ESP32-CAM/config.h
+
+# Python secrets
+Python/.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
