@@ -94,6 +94,33 @@ def send_otp(otp):
         return "Error"
 
 
+# 🚨 SEND SECURITY WARNING
+@app.route("/send_warning")
+def send_warning():
+    try:
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+
+        message = (
+            "🚨 SECURITY ALERT 🚨\n\n"
+            "Three incorrect OTP attempts were detected.\n"
+            "The keypad has been locked for 5 minutes.\n\n"
+            "An intruder image is being captured."
+        )
+
+        requests.post(
+            url,
+            data={
+                "chat_id": CHAT_ID,
+                "text": message
+            }
+        )
+
+        return "Warning Sent"
+
+    except Exception as e:
+        print(e)
+        return "Error"
+        
 # 🔘 SEND BUTTON
 @app.route("/start")
 def start():
